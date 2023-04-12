@@ -1,0 +1,123 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+article{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    transition: all .3 ease;
+    margin-top: 20vh;
+
+}
+article img:nth-child(1){
+    box-shadow: 0 60px 100px -20px rgba(253, 52, 52, 0.5);
+    border-radius: 4px;
+    object-fit: cover;
+    width: 100%;
+}
+
+ article img:nth-child(2){
+    position: absolute;
+    width: 250px;
+    height: 260px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(20%);
+    transition: .3s ease;
+    opacity: 0;
+
+ }
+ article img:nth-child(3){
+    position: absolute;
+   height: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+     transform: translateY(20%);
+     transition: .3s ease;
+     opacity: 0;
+
+ }
+ article:hover{
+    transform: perspective(250px)
+    rotateX(10deg)
+    translateY(-10%)
+    translateZ(0);
+   
+ }
+
+ article::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(
+        to bottom, transparent 10%,
+        rgba(0,0,0, .5) 50%,
+        rgba(0,0,0)90%
+        );
+        opacity: 0;
+        transition:all .3s ease ;
+
+ }
+
+ article:hover::before{
+    opacity: 1;
+ }
+ article:hover img:nth-child(2){
+    opacity: 1;
+    transform: translateY(0%);
+ }
+
+ article:hover img:nth-child(3){
+    opacity: 1;
+  
+    animation: animate 6s ease infinite;
+    filter: drop-shadow(5px 5px 20px rgba(240, 255, 25, 0.7));
+    
+
+ }
+
+ @keyframes animate {
+    0%{
+        transform: translatex(-10%)
+        translateY(-20%)
+        rotate(5deg);
+        
+    }
+
+    50%{
+        transform: translatex(20%)
+        translateY(-20%)
+        rotate(-5deg);
+        
+        
+    }
+
+   
+
+    100%{
+        transform: translatex(-10%)
+        translateY(-20%)
+        rotate(5deg);
+
+    }
+   
+    
+ }
